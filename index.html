@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bouldering Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="page-header">
+        <h1>Bouldering Progress Tracker</h1>
+        <p>Track climbs, review sends, and monitor your progress over time.</p>
+      </header>
+
+      <section class="card" aria-labelledby="entry-form-title">
+        <h2 id="entry-form-title">Log a Climb Attempt</h2>
+        <form id="entry-form" novalidate>
+          <div class="form-grid">
+            <label>
+              Date <span class="required">*</span>
+              <input type="date" id="date" name="date" required />
+            </label>
+
+            <label>
+              Gym
+              <input type="text" id="gym" name="gym" placeholder="e.g. The Spot" />
+            </label>
+
+            <label>
+              Problem Name <span class="required">*</span>
+              <input
+                type="text"
+                id="problem"
+                name="problem"
+                placeholder="e.g. Blue Arete"
+                required
+              />
+            </label>
+
+            <label>
+              Grade
+              <select id="grade" name="grade">
+                <option value="V0">V0</option>
+                <option value="V1">V1</option>
+                <option value="V2">V2</option>
+                <option value="V3">V3</option>
+                <option value="V4">V4</option>
+                <option value="V5">V5</option>
+                <option value="V6">V6</option>
+                <option value="V7">V7</option>
+                <option value="V8">V8</option>
+                <option value="V9">V9</option>
+                <option value="V10">V10</option>
+                <option value="Project">Project</option>
+              </select>
+            </label>
+
+            <label>
+              Attempts
+              <input
+                type="number"
+                id="attempts"
+                name="attempts"
+                min="1"
+                value="1"
+                required
+              />
+            </label>
+
+            <label class="checkbox-field">
+              <input type="checkbox" id="sent" name="sent" />
+              Sent?
+            </label>
+
+            <label>
+              Style
+              <select id="style" name="style">
+                <option value="slab">slab</option>
+                <option value="vertical">vertical</option>
+                <option value="overhang">overhang</option>
+              </select>
+            </label>
+
+            <label class="full-width">
+              Notes
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                placeholder="How did it feel? Any beta notes?"
+              ></textarea>
+            </label>
+          </div>
+
+          <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+
+          <div class="actions">
+            <button type="submit">Save Entry</button>
+            <button type="button" id="clear-all" class="danger">Clear All Data</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="filters-title">
+        <h2 id="filters-title">Filters & Sorting</h2>
+        <div class="filters-grid">
+          <label>
+            Filter by Grade
+            <select id="filter-grade">
+              <option value="All">All</option>
+              <option value="V0">V0</option>
+              <option value="V1">V1</option>
+              <option value="V2">V2</option>
+              <option value="V3">V3</option>
+              <option value="V4">V4</option>
+              <option value="V5">V5</option>
+              <option value="V6">V6</option>
+              <option value="V7">V7</option>
+              <option value="V8">V8</option>
+              <option value="V9">V9</option>
+              <option value="V10">V10</option>
+              <option value="Project">Project</option>
+            </select>
+          </label>
+
+          <label class="checkbox-field">
+            <input type="checkbox" id="filter-sent" />
+            Sent only
+          </label>
+
+          <label>
+            Search Problem
+            <input type="search" id="search-problem" placeholder="Type a problem name" />
+          </label>
+
+          <label>
+            Sort
+            <select id="sort-by">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="highest-grade">Highest grade first</option>
+              <option value="most-attempts">Most attempts first</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="stats-title">
+        <h2 id="stats-title">Stats</h2>
+        <div id="stats" class="stats-grid"></div>
+      </section>
+
+      <section class="card" aria-labelledby="entries-title">
+        <h2 id="entries-title">Entries</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Gym</th>
+                <th>Problem</th>
+                <th>Grade</th>
+                <th>Attempts</th>
+                <th>Sent</th>
+                <th>Style</th>
+                <th>Notes</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="entries-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
