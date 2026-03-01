@@ -13,6 +13,25 @@
         <p>Track climbs, review sends, and monitor your progress over time.</p>
       </header>
 
+      <section class="card" aria-labelledby="auth-title">
+        <h2 id="auth-title">Account & Sync</h2>
+        <div class="auth-layout">
+          <div id="signed-out-view" class="auth-row">
+            <label>
+              Email
+              <input type="email" id="auth-email" placeholder="you@example.com" autocomplete="email" />
+            </label>
+            <button type="button" id="sign-in">Sign in</button>
+          </div>
+
+          <div id="signed-in-view" class="auth-row hidden" aria-live="polite">
+            <p class="auth-user">Signed in as <strong id="auth-user-email"></strong></p>
+            <button type="button" id="sign-out" class="secondary">Sign out</button>
+          </div>
+        </div>
+        <p id="sync-status" class="sync-status" aria-live="polite">Signed out</p>
+      </section>
+
       <section class="card" aria-labelledby="entry-form-title">
         <h2 id="entry-form-title">Log a Climb Attempt</h2>
         <form id="entry-form" novalidate>
@@ -96,7 +115,7 @@
           <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
 
           <div class="actions">
-            <button type="submit">Save Entry</button>
+            <button type="submit" id="save-entry">Save Entry</button>
             <button type="button" id="clear-all" class="danger">Clear All Data</button>
           </div>
         </form>
@@ -147,7 +166,13 @@
       </section>
 
       <section class="card" aria-labelledby="stats-title">
-        <h2 id="stats-title">Stats</h2>
+        <div class="section-header-row">
+          <h2 id="stats-title">Stats</h2>
+          <div class="actions compact">
+            <button type="button" id="export-json" class="secondary">Export JSON</button>
+            <button type="button" id="export-csv" class="secondary">Export CSV</button>
+          </div>
+        </div>
         <div id="stats" class="stats-grid"></div>
       </section>
 
@@ -175,6 +200,7 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js"></script>
   </body>
 </html>

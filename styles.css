@@ -47,6 +47,44 @@ h2 {
   font-size: 1.1rem;
 }
 
+.auth-layout {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.auth-row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.auth-row label {
+  min-width: 240px;
+}
+
+.auth-user {
+  margin: 0;
+}
+
+.sync-status {
+  margin: 0.65rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.sync-status[data-status='synced'] {
+  color: #0f9d58;
+}
+
+.sync-status[data-status='error'] {
+  color: var(--danger);
+}
+
+.hidden {
+  display: none;
+}
+
 .form-grid,
 .filters-grid {
   display: grid;
@@ -104,6 +142,18 @@ textarea {
   flex-wrap: wrap;
 }
 
+.actions.compact {
+  margin-top: 0;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 button {
   border: 0;
   border-radius: 8px;
@@ -111,6 +161,11 @@ button {
   cursor: pointer;
   background: var(--accent);
   color: #fff;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
 }
 
 button.danger {
