@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://gjfxqoyjgnncgnfilsfm.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqZnhxb3lqZ25uY2duZmlsc2ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIzODAwMzYsImV4cCI6MjA4Nzk1NjAzNn0.mMrLy5KisJv2xMZj2UQMcBf_kKRcGWU6XSZ2WAmE_WI';
 const PREFS_KEY = 'boulderingPreferences';
 
 const GRADES = ['V0', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V10', 'Project'];
